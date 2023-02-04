@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "317285672132",
+    "firebase_url": "https://androidquizapp-38158-default-rtdb.firebaseio.com",
+    "project_id": "androidquizapp-38158",
+    "storage_bucket": "androidquizapp-38158.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317285672132:android:b70af3801fdeadf2741591",
+        "android_client_info": {
+          "package_name": "com.sanapplications.aptitudetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317285672132-u0645d7fv27ghqnrr0kusn5nntce91ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASAB3J1puJhEyf6-hiLUIaSMdYgp_XdyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317285672132-u0645d7fv27ghqnrr0kusn5nntce91ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
