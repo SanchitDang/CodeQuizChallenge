@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         queList = new ArrayList<>();
 
-
-//        // getting ques using firebase
+//**************************************************************************************************
+//        //Getting ques using Firebase
+//
 //        databaseReference = FirebaseDatabase.getInstance().getReference("Questions");
 //        databaseReference.addValueEventListener(new ValueEventListener() {
 //            @Override
@@ -61,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void onCancelled(@NonNull DatabaseError error) {}
 //        });
+//**************************************************************************************************
 
 
 
-
-
+//**************************************************************************************************
         // getting ques using API
-        API = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Linux&limit=10";
 
+        API = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Linux&limit=10";
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -94,8 +96,14 @@ public class MainActivity extends AppCompatActivity {
                                 String op4 = ques.getString("correct_answer");
                                 String ans = ques.getString("correct_answer");
 
-                                Log.d("Que", que+op1+op2);
-                                queList.add(new ModelClass(que, op1, op2, op3, op4, ans));
+                                //Array to put all options and shuffle them
+                                ArrayList<String> ops = new ArrayList<String>();
+                                ops.add(op1);ops.add(op2);ops.add(op3);ops.add(op4);
+                                Collections.shuffle(ops);
+
+                                queList.add(new ModelClass(que,
+                                        ops.get(0), ops.get(1), ops.get(2), ops.get(3),
+                                        ans));
                             }
 
 
@@ -106,39 +114,42 @@ public class MainActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        //String u = response.toString();
-                        //Log.d("Json Req", u);
-//
+
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Log.d("Json Error","err");
-                //textView.setText("That didn't work!");
+                Log.d("Json Error","err");
             }
         });
 
         // Add the request to the RequestQueue.
         queue.add(jsonObjectRequest);
+//**************************************************************************************************
 
 
 
-        // getting ques using ArrayList
+//**************************************************************************************************
+//        //Getting ques using ArrayList (1)
+//
 //        queList.add(new ModelClass("Is ur gf Kutiya?", "Hell ya!","Definitely","i guess yess","Haa yaar","Hell ya!"));
 //        queList.add(new ModelClass("Are you ho?", "Hell ya!","Definitely","i guess yess","Haa yaar", "Hell ya!"));
 //        queList.add(new ModelClass("You eat shit?", "Hell ya!","Definitely","i guess yess","Haa yaar", "Hell ya!"));
 //        queList.add(new ModelClass("Is ur father R?", "Hell ya!","Definitely","i guess yess","Haa yaar","Hell ya!"));
 //        queList.add(new ModelClass("You are Chakka?", "Hell ya!","Definitely","i guess yess","Haa yaar","Hell ya!"));
-
+//**************************************************************************************************
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                // getting ques using ArrayList
+
+//**************************************************************************************************
+//                //Getting ques using ArrayList (2)
+//
 //                Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
 //                startActivity(intent);
-
+//**************************************************************************************************
 
 
             }

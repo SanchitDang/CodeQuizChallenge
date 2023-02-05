@@ -33,7 +33,6 @@ public class DashboardActivity extends AppCompatActivity {
     int index=0;
 
     int correct=0;
-    int wrong=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,16 +81,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    private void setAllData() {
-        card_question.setText(modelClass.getQue());
-        option1.setText(modelClass.getOp1());
-        option2.setText(modelClass.getOp2());
-        option3.setText(modelClass.getOp3());
-        option4.setText(modelClass.getOp4());
-
-        timerVal=30;
-    }
-
     private void Hooks() {
         pb = findViewById(R.id.progBar);
 
@@ -109,48 +98,14 @@ public class DashboardActivity extends AppCompatActivity {
         btn_next = findViewById(R.id.btn_next);
     }
 
-    public void Correct(CardView c){
+    private void setAllData() {
+        card_question.setText(modelClass.getQue());
+        option1.setText(modelClass.getOp1());
+        option2.setText(modelClass.getOp2());
+        option3.setText(modelClass.getOp3());
+        option4.setText(modelClass.getOp4());
 
-        c.setBackgroundColor(getResources().getColor(R.color.green));
-
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                correct++;
-                index++;
-
-                modelClass = queList.get(index);
-                resetColor();
-                setAllData();
-                enableButton();
-            }
-        });
-
-    }
-
-    public void Wrong(CardView c){
-
-        c.setBackgroundColor(getResources().getColor(R.color.red));
-
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                wrong++;
-
-                if(index<queList.size()-1){
-                    index++;
-
-                    modelClass = queList.get(index);
-                    resetColor();
-                    setAllData();
-                    enableButton();
-
-                } else{
-                    GameWon();
-                }
-            }
-        });
-
+        timerVal=30;
     }
 
     private void GameWon() {
@@ -180,22 +135,59 @@ public class DashboardActivity extends AppCompatActivity {
         card4.setBackgroundColor(getResources().getColor(R.color.white));
     }
 
+
+    public void Correct(CardView c){
+        c.setBackgroundColor(getResources().getColor(R.color.green));
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correct++;
+                index++;
+
+                modelClass = queList.get(index);
+                resetColor();
+                setAllData();
+                enableButton();
+            }
+        });
+
+    }
+
+    public void Wrong(CardView c){
+        c.setBackgroundColor(getResources().getColor(R.color.red));
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(index<queList.size()-1){
+                    index++;
+
+                    modelClass = queList.get(index);
+                    resetColor();
+                    setAllData();
+                    enableButton();
+
+                }
+                else GameWon();
+            }
+        });
+
+    }
+
+
     public void Clicked_opt1(View view) {
         disableButton();
         btn_next.setClickable(true);
 
         if(modelClass.getOp1().equals(modelClass.getAns())){
             card1.setBackgroundColor(getResources().getColor(R.color.green));
-
-            if(index<queList.size()-1){
-                Correct(card1);
-            }else{
-                GameWon();
-            }
-
-        }else{
-            Wrong(card1);
+            if(index<queList.size()-1) Correct(card1);
+            else GameWon();
         }
+        else Wrong(card1);
+
     }
 
     public void Clicked_opt2(View view) {
@@ -204,16 +196,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         if(modelClass.getOp2().equals(modelClass.getAns())){
             card2.setBackgroundColor(getResources().getColor(R.color.green));
-
-            if(index<queList.size()-1){
-                Correct(card2);
-            }else{
-                GameWon();
-            }
-
-        }else{
-            Wrong(card2);
+            if(index<queList.size()-1) Correct(card2);
+            else GameWon();
         }
+        else Wrong(card2);
+
     }
 
     public void Clicked_opt3(View view) {
@@ -221,17 +208,12 @@ public class DashboardActivity extends AppCompatActivity {
         btn_next.setClickable(true);
 
         if(modelClass.getOp3().equals(modelClass.getAns())){
-                card3.setBackgroundColor(getResources().getColor(R.color.green));
+            card3.setBackgroundColor(getResources().getColor(R.color.green));
+            if(index<queList.size()-1) Correct(card3);
+            else GameWon();
+        }
+        else Wrong(card3);
 
-                if(index<queList.size()-1){
-                    Correct(card3);
-                }else{
-                    GameWon();
-                }
-
-            }else{
-                Wrong(card3);
-            }
     }
 
 
@@ -241,16 +223,11 @@ public class DashboardActivity extends AppCompatActivity {
 
         if(modelClass.getOp4().equals(modelClass.getAns())){
             card4.setBackgroundColor(getResources().getColor(R.color.green));
-
-            if(index<queList.size()-1){
-                Correct(card4);
-            }else{
-                GameWon();
-            }
-
-        }else{
-            Wrong(card4);
+            if(index<queList.size()-1) Correct(card4);
+            else GameWon();
         }
+        else Wrong(card4);
+
     }
 
 

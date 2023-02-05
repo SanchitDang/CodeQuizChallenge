@@ -30,7 +30,7 @@ public class WonActivity extends AppCompatActivity {
         btn_share = findViewById(R.id.btn_share);
 
         c_pb.setProgress(correct);
-        result.setText(correct+"/5");
+        result.setText(correct+"/10");
 
         btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class WonActivity extends AppCompatActivity {
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-                    String shareMessage= "\nI got " + correct + " out of 20! You can also try\n\n";
+                    String shareMessage= "\nI got " + correct + " out of 10! You can also try\n\n";
                     shareMessage = shareMessage + "\nhttps://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                     startActivity(Intent.createChooser(shareIntent, "choose one"));
