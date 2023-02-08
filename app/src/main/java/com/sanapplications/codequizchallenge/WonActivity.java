@@ -15,7 +15,6 @@ public class WonActivity extends AppCompatActivity {
     CircularProgressBar c_pb;
     TextView result;
     LinearLayout btn_share;
-
     int correct;
 
     @Override

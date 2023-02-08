@@ -1,6 +1,6 @@
 package com.sanapplications.codequizchallenge;
 
-import static com.sanapplications.codequizchallenge.MainActivity.queList;
+import static com.sanapplications.codequizchallenge.ChoiceActivity.queList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -42,7 +41,7 @@ public class DashboardActivity extends AppCompatActivity {
         Hooks();
 
         ques = queList;
-        Collections.shuffle(ques);
+        //Collections.shuffle(ques);
         modelClass=queList.get(index);
 
         card1.setBackgroundColor(getResources().getColor(R.color.white));
@@ -106,6 +105,8 @@ public class DashboardActivity extends AppCompatActivity {
         option4.setText(modelClass.getOp4());
 
         timerVal=30;
+        countDownTimer.cancel();
+        countDownTimer.start();
     }
 
     private void GameWon() {
@@ -229,6 +230,7 @@ public class DashboardActivity extends AppCompatActivity {
         else Wrong(card4);
 
     }
+
 
 
 }

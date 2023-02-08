@@ -30,20 +30,20 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static ArrayList<ModelClass> queList;
-    DatabaseReference databaseReference;
-    public String API;
+    //public static ArrayList<ModelClass> queList;
+//    public String APIlinux, APIgen, APIbash, APIdocker, APIsql, APIcms, APIcode, APIdevops;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        queList = new ArrayList<>();
+        //queList = new ArrayList<>();
 
 //**************************************************************************************************
 //        //Getting ques using Firebase
 //
+//        DatabaseReference databaseReference;
 //        databaseReference = FirebaseDatabase.getInstance().getReference("Questions");
 //        databaseReference.addValueEventListener(new ValueEventListener() {
 //            @Override
@@ -68,63 +68,72 @@ public class MainActivity extends AppCompatActivity {
 
 
 //**************************************************************************************************
-        // getting ques using API
-
-        API = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Linux&limit=10";
-
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
-
-        // Request a string response from the provided URL.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("results");
-
-                            Log.d("ArrJson", jsonArray.toString());
-
-                            for(int i=0; i<jsonArray.length(); i++){
-                                JSONObject ques = jsonArray.getJSONObject(i);
-                                JSONArray jsonArray_incAns = ques.getJSONArray("incorrect_answers");
-
-                                String que = ques.getString("question");
-                                String op1 = jsonArray_incAns.getString(0);
-                                String op2 = jsonArray_incAns.getString(1);
-                                String op3 = jsonArray_incAns.getString(2);
-                                String op4 = ques.getString("correct_answer");
-                                String ans = ques.getString("correct_answer");
-
-                                //Array to put all options and shuffle them
-                                ArrayList<String> ops = new ArrayList<String>();
-                                ops.add(op1);ops.add(op2);ops.add(op3);ops.add(op4);
-                                Collections.shuffle(ops);
-
-                                queList.add(new ModelClass(que,
-                                        ops.get(0), ops.get(1), ops.get(2), ops.get(3),
-                                        ans));
-                            }
-
-
-                            Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                            startActivity(intent);
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("Json Error","err");
-            }
-        });
-
-        // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest);
+//        //Getting ques using API
+//
+//        //List of API's
+//        APIgen = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
+//        APIlinux = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Linux&limit=10";
+//        APIbash = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Bash&limit=10";
+//        APIdocker = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Bash&limit=10";
+//        APIsql = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=SQL&limit=10";
+//        APIcms = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=CMS&limit=10";
+//        APIcode = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Code&limit=10";
+//        APIdevops = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=DevOps&limit=10";
+//
+//
+//        // Instantiate the RequestQueue.
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url = APIgen;
+//
+//        // Request a string response from the provided URL.
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            JSONArray jsonArray = response.getJSONArray("results");
+//
+//                            Log.d("ArrJson", jsonArray.toString());
+//
+//                            for(int i=0; i<jsonArray.length(); i++){
+//                                JSONObject ques = jsonArray.getJSONObject(i);
+//                                JSONArray jsonArray_incAns = ques.getJSONArray("incorrect_answers");
+//
+//                                String que = ques.getString("question");
+//                                String op1 = jsonArray_incAns.getString(0);
+//                                String op2 = jsonArray_incAns.getString(1);
+//                                String op3 = jsonArray_incAns.getString(2);
+//                                String op4 = ques.getString("correct_answer");
+//                                String ans = ques.getString("correct_answer");
+//
+//                                //Array to put all options and shuffle them
+//                                ArrayList<String> ops = new ArrayList<String>();
+//                                ops.add(op1);ops.add(op2);ops.add(op3);ops.add(op4);
+//                                Collections.shuffle(ops);
+//
+//                                queList.add(new ModelClass(que,
+//                                        ops.get(0), ops.get(1), ops.get(2), ops.get(3),
+//                                        ans));
+//                            }
+//
+//
+//                            Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
+//                            startActivity(intent);
+//
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d("Json Error","err");
+//            }
+//        });
+//
+//        // Add the request to the RequestQueue.
+//        queue.add(jsonObjectRequest);
 //**************************************************************************************************
 
 
@@ -142,7 +151,8 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
+                Intent intent = new Intent(MainActivity.this, ChoiceActivity.class);
+                startActivity(intent);
 
 //**************************************************************************************************
 //                //Getting ques using ArrayList (2)
