@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +31,7 @@ public class ChoiceActivity extends AppCompatActivity {
     ImageView general_ques, linux_ques, bash_ques, docker_ques, sql_ques,cms_ques,code_ques,devops_ques;
     public static ArrayList<ModelClass> queList;
     String APIlinux, APIgen, APIbash, APIdocker, APIsql, APIcms, APIcode, APIdevops;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class ChoiceActivity extends AppCompatActivity {
         devops_ques = findViewById(R.id.devops_ques);
 
         queList = new ArrayList<>();
+
+
 
     }
 
@@ -266,5 +270,9 @@ public class ChoiceActivity extends AppCompatActivity {
         finish();
     }
 
+    public void Clicked_account(View view) {
+        Intent i = new Intent(ChoiceActivity.this, AccountActivity.class);
+        startActivity(i);
+    }
 
 }

@@ -241,6 +241,9 @@ public class DashboardActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
-
+    public void Clicked_account(View view) {
+        Intent i = new Intent(DashboardActivity.this, AccountActivity.class);
+        startActivity(i);
+    }
 
 }

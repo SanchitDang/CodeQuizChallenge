@@ -1,14 +1,26 @@
 package com.sanapplications.codequizchallenge;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class WonActivity extends AppCompatActivity {
 
@@ -17,6 +29,9 @@ public class WonActivity extends AppCompatActivity {
     LinearLayout btn_share;
     int correct;
 
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +45,25 @@ public class WonActivity extends AppCompatActivity {
 
         c_pb.setProgress(correct);
         result.setText(correct+"/10");
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        userID = fAuth.getCurrentUser().getUid();
+
+        DocumentReference df = fStore.collection("users").document(userID);
+        df.update("gen", FieldValue.increment(correct)).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(WonActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(WonActivity.this, "Data Adding Failed", Toast.LENGTH_SHORT).show();
+                Log.d("fail", e.toString());
+            }
+        });
+
 
         btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,5 +82,10 @@ public class WonActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void Clicked_account(View view) {
+        Intent i = new Intent(WonActivity.this, AccountActivity.class);
+        startActivity(i);
     }
 }

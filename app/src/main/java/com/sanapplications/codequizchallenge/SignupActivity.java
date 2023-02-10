@@ -85,11 +85,19 @@ public class SignupActivity extends AppCompatActivity {
                                 //adding user data in FireBase Database
                                 UserID = mAuth.getCurrentUser().getUid();
                                 DocumentReference df = mStore.collection("users").document(UserID);
-
                                 //create map to store key value in database
                                 Map<String, Object> user = new HashMap<>();
                                 user.put("email", userName);
                                 user.put("pass", pwd);
+                                user.put("sql", 0);
+                                user.put("devops", 0);
+                                user.put("gen", 0);
+                                user.put("linux", 0);
+                                user.put("bash", 0);
+                                user.put("docker", 0);
+                                user.put("cms", 0);
+                                user.put("code", 0);
+
                                 df.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {

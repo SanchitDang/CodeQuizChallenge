@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
             android:text="Code Quiz Challenge"
+            android:textColor="@color/white"
             android:textSize="@dimen/_30sdp" />
         
         <ProgressBar

@@ -12,14 +12,18 @@
         android:background="#0352A1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp">
-        
-        <ImageView
+
+        <TextView
             android:id="@+id/ic_back"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:onClick="Clicked_account"
+            android:text="Account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_centerVertical="true"
-            android:background="@drawable/back_but"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
             android:backgroundTint="@color/white" />
 
         <TextView
@@ -84,6 +88,7 @@
             android:id="@+id/option1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/black" />
@@ -105,6 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/black" />
 
@@ -125,6 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/black" />
 
@@ -145,6 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/black" />
 
