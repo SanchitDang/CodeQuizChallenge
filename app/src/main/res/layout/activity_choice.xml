@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg1"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -26,13 +25,14 @@
                 android:backgroundTint="@color/white" />
 
             <TextView
-                android:id="@+id/ic_exit"
+                android:onClick="Clicked_logout"
+                android:id="@+id/ic_logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/_12sdp"
-                android:text="Exit"
+                android:text="Logout"
 
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"

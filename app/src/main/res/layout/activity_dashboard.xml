@@ -23,13 +23,14 @@
             android:backgroundTint="@color/white" />
 
         <TextView
-            android:id="@+id/ic_exit"
+            android:id="@+id/ic_logout"
+            android:onClick="Clicked_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_12sdp"
-            android:text="Exit"
+            android:text="Logout"
 
             android:textColor="@color/white"
             android:textSize="@dimen/_20sdp"

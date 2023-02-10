@@ -15,11 +15,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    TextView card_question, option1, option2, option3, option4;
+    TextView card_question, option1, option2, option3, option4, ic_logout;
     CardView card1, card2, card3, card4;
     LinearLayout btn_next;
 
@@ -93,6 +95,8 @@ public class DashboardActivity extends AppCompatActivity {
         card2 = findViewById(R.id.card2);
         card3 = findViewById(R.id.card3);
         card4 = findViewById(R.id.card4);
+
+        ic_logout = findViewById(R.id.ic_logout);
 
         btn_next = findViewById(R.id.btn_next);
     }
@@ -231,6 +235,12 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
+
+    public void Clicked_logout(View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
+    }
 
 
 }
