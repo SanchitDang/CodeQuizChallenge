@@ -18,43 +18,56 @@ So, put your coding skills to the test and see how you stack up against others i
 
 ## Screenshots
 Sign Up
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/SignUp.png) 
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/SignUp.png" width="200" height="400" />
 \
 Login
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/Login.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/Login.png" width="200" height="400" />
 \
 DashBoard
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DashBoard.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DashBoard.png" width="200" height="400" />
 \
 Profile Section User x
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/ProfileSection1UserX.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/ProfileSection1UserX.png" width="200" height="400" />
 \
 Profile Section User y
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/ProfileSection1UserY.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/ProfileSection1UserY.png" width="200" height="400" />
 \
 Question
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/Question.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/Question.png" width="200" height="400" />
 \
 Correct Answer
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/CorrectAns.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/CorrectAns.png" width="200" height="400" />
 \
 Wrong Answer
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/WrongAns.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/WrongAns.png" width="200" height="400" />
 \
 Time Up
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/TimeUp.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/TimeUp.png" width="200" height="400" />
 \
 Final Score
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/FinalScore.png)
-
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/FinalScore.png" width="200" height="400" />
 
 
 ## Backend
 Authenticated Users
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/AllUsers.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/AllUsers.png" width="800" height="400" />
 \
 Data of User x
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DataUserX.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DataUserX.png" width="800" height="400" />
 \
 Data of User Y
-![App Screenshot](https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DataUserY.png)
+\
+<img src="https://raw.githubusercontent.com/SanchitDang/CodeQuizChallenge/master/app/WorkingDemo/DataUserY.png" width="800" height="400" />
+
