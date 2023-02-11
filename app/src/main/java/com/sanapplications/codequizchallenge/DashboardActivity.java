@@ -14,8 +14,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -35,6 +34,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     int correct=0;
 
+    public String choice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +43,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         Hooks();
 
+        choice = getIntent().getStringExtra("choice");
+        Toast.makeText(this, choice, Toast.LENGTH_SHORT).show();
+
         ques = queList;
-        //Collections.shuffle(ques);
         modelClass=queList.get(index);
 
         card1.setBackgroundColor(getResources().getColor(R.color.white));
@@ -71,6 +74,7 @@ public class DashboardActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent i = new Intent(DashboardActivity.this, MainActivity.class);
                         startActivity(i);
+                        finish();
                     }
                 });
 
@@ -116,7 +120,10 @@ public class DashboardActivity extends AppCompatActivity {
     private void GameWon() {
         Intent i = new Intent(DashboardActivity.this, WonActivity.class);
         i.putExtra("correct", correct);
+        i.putExtra("choice", choice);
+        i.putExtra("index", index+1);
         startActivity(i);
+        finish();
     }
 
     public void enableButton(){
@@ -236,14 +243,16 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
-    public void Clicked_logout(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
-    }
     public void Clicked_account(View view) {
         Intent i = new Intent(DashboardActivity.this, AccountActivity.class);
         startActivity(i);
+        finish();
+    }
+
+    public void Clicked_home(View view) {
+        Intent i = new Intent(DashboardActivity.this, DashboardActivity.class);
+        startActivity(i);
+        finish();
     }
 
 }

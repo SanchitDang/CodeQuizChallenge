@@ -49,6 +49,7 @@ public class AccountActivity extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot ds, @Nullable FirebaseFirestoreException error) {
                 user_profile_name.setText(ds.getString("email"));
                 genTT.setText("General Total Points: " + ds.getLong("gen").intValue());
+                linuxTT.setText("Linux Total Points: " + ds.getLong("linux").intValue());
                 sqlTT.setText("SQL Total Points: " + ds.getLong("sql").intValue());
                 devopsTT.setText("Devops Total Points: " + ds.getLong("devops").intValue());
                 bashTT.setText("Bash Total Points: " + ds.getLong("bash").intValue());
@@ -68,5 +69,6 @@ public class AccountActivity extends AppCompatActivity {
     public void Clicked_home(View view) {
         Intent i = new Intent(this, DashboardActivity.class);
         startActivity(i);
+        finish();
     }
 }

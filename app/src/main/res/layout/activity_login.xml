@@ -127,7 +127,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="FORGOT PASSWORD ?"
+            android:text="DONT HAVE AN ACCOUNT ?"
             android:textColor="#1566e0"
             android:textSize="10.5sp" />
 

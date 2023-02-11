@@ -28,6 +28,7 @@ import java.util.Collections;
 
 public class ChoiceActivity extends AppCompatActivity {
 
+    public String choice;
     ImageView general_ques, linux_ques, bash_ques, docker_ques, sql_ques,cms_ques,code_ques,devops_ques;
     public static ArrayList<ModelClass> queList;
     String APIlinux, APIgen, APIbash, APIdocker, APIsql, APIcms, APIcode, APIdevops;
@@ -54,6 +55,7 @@ public class ChoiceActivity extends AppCompatActivity {
     }
 
     public void Clicked_general(View view) {
+        choice="gen";
         APIgen = "https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple";
         APIcall(APIgen);
         try {
@@ -62,11 +64,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
 
     public void Clicked_linux(View view) {
+        choice="linux";
         APIlinux = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Linux&limit=10";
         APIcall2(APIlinux);
         try {
@@ -75,11 +79,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
 
     public void Clicked_bash(View view) {
+        choice="bash";
         APIbash = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Bash&limit=10";
         APIcall2(APIbash);
         try {
@@ -88,11 +94,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
 
     public void Clicked_docker(View view) {
+        choice="docker";
         APIdocker = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Bash&limit=10";
         APIcall2(APIdocker);
         try {
@@ -101,11 +109,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
 
     public void Clicked_cms(View view) {
+        choice="cms";
         APIcms = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=CMS&limit=10";
         APIcall2(APIcms);
         try {
@@ -114,10 +124,12 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
     public void Clicked_sql(View view) {
+        choice="sql";
         APIsql = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=sql&limit=10";
         APIcall2(APIsql);
         try {
@@ -126,10 +138,12 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
     public void Clicked_code(View view) {
+        choice="code";
         APIcode = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=Code&limit=10";
         APIcall2(APIcode);
         try {
@@ -138,11 +152,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
     }
 
 
     public void Clicked_devops(View view) {
+        choice="devops";
         APIdevops = "https://quizapi.io/api/v1/questions?apiKey=XXWi9TQjBCmahBVjIzcSeR9uZvQbUcJjsqyaviPP&category=DevOps&limit=10";
         APIcall2(APIdevops);
         try {
@@ -151,13 +167,13 @@ public class ChoiceActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         Intent i = new Intent(ChoiceActivity.this, DashboardActivity.class);
+        i.putExtra("choice",choice);
         startActivity(i);
 
     }
 
 
     public void APIcall(String APIurl) {
-
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = APIurl;

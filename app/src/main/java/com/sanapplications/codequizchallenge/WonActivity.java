@@ -28,7 +28,8 @@ public class WonActivity extends AppCompatActivity {
     TextView result;
     LinearLayout btn_share;
     int correct;
-
+    int index;
+    public String choice;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
@@ -38,20 +39,26 @@ public class WonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_won);
 
         correct = getIntent().getIntExtra("correct", 0);
+        index = getIntent().getIntExtra("index", 0);
+        choice = getIntent().getStringExtra("choice");
+
+        Toast.makeText(this, choice, Toast.LENGTH_SHORT).show();
 
         c_pb = findViewById(R.id.circularProgressBar);
         result = findViewById(R.id.result);
         btn_share = findViewById(R.id.btn_share);
 
         c_pb.setProgress(correct);
-        result.setText(correct+"/10");
+        c_pb.setProgressMax(index);
+        result.setText(correct+"/"+index);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
 
         DocumentReference df = fStore.collection("users").document(userID);
-        df.update("gen", FieldValue.increment(correct)).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+        df.update(choice, FieldValue.increment(correct)).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(WonActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
@@ -87,5 +94,12 @@ public class WonActivity extends AppCompatActivity {
     public void Clicked_account(View view) {
         Intent i = new Intent(WonActivity.this, AccountActivity.class);
         startActivity(i);
+        finish();
+    }
+
+    public void Clicked_home(View view) {
+        Intent i = new Intent(WonActivity.this, DashboardActivity.class);
+        startActivity(i);
+        finish();
     }
 }
